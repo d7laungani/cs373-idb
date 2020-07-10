@@ -92,7 +92,7 @@ def add_make(make):
   expensive_car = reduce((lambda m, car:m if m['price'] > car['price'] else car),cars)
   make_json['max_car_id'] = expensive_car['id']
   url_name = reduce(lambda r,x:  r + x.capitalize() + '-', make.split('-'),'')
-  url = 'http://www.carlogos.org/uploads/car-logos/{}logo-1.jpg'.format(url_name)
+  url = 'http://www.carlogos.org/logo/{}logo.png'.format(url_name)
   response = requests.get(url)
   if(response.status_code == 404):
     url = bing.search(make + " logo", limit=1, format='json')
